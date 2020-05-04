@@ -30,7 +30,7 @@ airports= L.geoJson.ajax("assets/airports.geojson", {
         if (feature.properties.CNTL_TWR == "Y") { id = 0; }
         else { id = 1;} // "N"
         //<i class="fas fa-broadcast-tower"></i>
-        return L.marker(latlng, {icon: L.divIcon({className: 'fa fa-rss marker-color-' + (id + 1).toString() })});
+        return L.marker(latlng, {icon: L.divIcon({className: 'fa fa-plane marker-color-' + (id + 1).toString() })});
     },
     attribution: 'Airport Data &copy; Map Cruzin | US States &copy; | Base Map &copy; CartoDB | Made By Claire Perez'
 }).addTo(mymap);
