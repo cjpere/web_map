@@ -32,7 +32,7 @@ airports= L.geoJson.ajax("assets/airports.geojson", {
         //<i class="fas fa-broadcast-tower"></i>
         return L.marker(latlng, {icon: L.divIcon({className: 'fa fa-plane marker-color-' + (id + 1).toString() })});
     },
-    attribution: 'Airport Data &copy; Mike Bostock of D3 | United States &copy; | Base Map &copy; CartoDB | Made By Claire Perez'
+    attribution: 'Airport Data &copy; USGS | United States Data &copy Mike Bostock of D3; | Base Map &copy; CartoDB | Made By Claire Perez'
 }).addTo(mymap);
 
 
