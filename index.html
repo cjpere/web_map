@@ -57,6 +57,40 @@ airports= L.geoJson.ajax("assets/airports.geojson", {
 }).addTo(mymap);
 
 
+
+colors = chroma.scale('YlOrRd').colors(6); //colors = chroma.scale('OrRd').colors(5);
+
+function setColor(count) {
+    var id = 0;
+    if (count > 50) { id = 5; }
+    else if (count > 40 && count <= 50) { id = 4; }
+    else if (count > 30 && count <= 40) { id = 3; }
+    else if (count > 20 &&  count <= 30) { id = 2; }
+    else if (count > 10 &&  count <= 20) { id = 1; }
+    else  { id = 0; }
+    return colors[id];
+}
+
+
+// 7. Set style function that sets fill color.md property equal to cell tower density
+function style(feature) {
+    return {
+        fillColor: setColor(feature.properties.count),
+        fillOpacity: 0.4,
+        weight: 2,
+        opacity: 1,
+        color: '#b4b4b4',
+        dashArray: '4'
+    };
+}
+
+// 8. Add county polygons
+// create counties variable, and assign null to it.
+var states = null;
+states = L.geoJson.ajax("assets/us-states.geojson", {
+    style: style
+}).addTo(mymap);
+
 </script>
 </body>
 </html>
