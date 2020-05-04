@@ -91,6 +91,35 @@ states = L.geoJson.ajax("assets/us-states.geojson", {
     style: style
 }).addTo(mymap);
 
+
+
+var legend = L.control({position: 'topright'});
+
+// 10. Function that runs when legend is added to map
+legend.onAdd = function () {
+
+    // Create Div Element and Populate it with HTML
+    var div = L.DomUtil.create('div', 'legend');
+    div.innerHTML += '<b># Airports</b><br />';
+    div.innerHTML += '<i style="background: ' + colors[5] + '; opacity: 0.5"></i><p>50+</p>';
+    div.innerHTML += '<i style="background: ' + colors[4] + '; opacity: 0.5"></i><p>40-50</p>';
+    div.innerHTML += '<i style="background: ' + colors[3] + '; opacity: 0.5"></i><p>30-40</p>';
+    div.innerHTML += '<i style="background: ' + colors[2] + '; opacity: 0.5"></i><p>20-30</p>';
+    div.innerHTML += '<i style="background: ' + colors[1] + '; opacity: 0.5"></i><p>10-20</p>';
+    div.innerHTML += '<i style="background: ' + colors[0] + '; opacity: 0.5"></i><p> 0-10</p>';
+    div.innerHTML += '<hr><b>Control Tower<b><br />';
+    div.innerHTML += '<i class="fa fa-plane marker-color-1"></i><p> Yes (Y)</p>';
+    div.innerHTML += '<i class="fa fa-plane marker-color-2"></i><p> No (N)</p>';
+    // Return the Legend div containing the HTML content
+    return div;
+};
+
+// 11. Add a legend to map
+legend.addTo(mymap);
+
+// 12. Add a scale bar to map
+L.control.scale({position: 'bottomleft'}).addTo(mymap);
+
 </script>
 </body>
 </html>
